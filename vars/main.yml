@@ -1,4 +1,5 @@
 ---
+_samba_role: ~
 _samba_service: smbd
 _samba_packages:
   - samba
