@@ -1,0 +1,5 @@
+---
+_samba_service: smbd
+_samba_packages:
+  - samba
+  - samba-client
