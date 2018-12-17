@@ -1,9 +1,7 @@
 ---
 - name: Install packages
   apt:
-    name: "{{ item }}"
-    state: latest
-  with_items: "{{ _samba_packages }}"
+    name: "{{ _samba_packages }}"
 
 - name: Start service
   service:
