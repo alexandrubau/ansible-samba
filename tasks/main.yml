@@ -3,12 +3,6 @@
   apt:
     name: "{{ _samba_packages }}"
 
-- name: Start service
-  service:
-    name: "{{ _samba_service }}"
-    state: started
-    enabled: yes
-
 - name: Create users # @see https://github.com/bertvv/ansible-role-samba/blob/master/tasks/main.yml
   shell: >
     (echo {{ item.password }}; echo {{ item.password }}) \
@@ -29,3 +23,9 @@
          guest ok = no
   with_items: "{{ samba_shares }}"
   notify: restart-samba
+
+- name: Start service
+  service:
+    name: "{{ _samba_service }}"
+    state: started
+    enabled: yes
