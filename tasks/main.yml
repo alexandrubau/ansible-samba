@@ -4,7 +4,7 @@
     name: "{{ _samba_packages }}"
 
 - name: Create users # @see https://github.com/bertvv/ansible-role-samba/blob/master/tasks/main.yml
-  shell: >
+  shell: >-
     (echo {{ item.password }}; echo {{ item.password }}) \
     | smbpasswd -s -a {{ item.username }}
   register: _output
